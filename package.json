@@ -1,18 +1,29 @@
 {
   "name": "todo_list_backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "A TODO List Backend using express js and mongodb",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon app.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "MongoDB",
+    "Mongoose",
+    "Express JS",
+    "Node JS"
+  ],
+  "author": "Jasman Arora",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.1.0",
-    "mongoose": "^7.5.3"
+    "mongoose": "^7.5.3",
+    "morgan": "^1.10.0",
+    "validator": "^13.11.0"
   }
 }
