@@ -41,3 +41,16 @@ exports.validateRefreshTokenSchema = async (req, res, next) => {
   }
   next();
 };
+
+exports.validateCreateTodoSchema = async (req, res, next) => {
+  const data = schemas.createTodoSchema.validate(req.body);
+  if (data.error) {
+    const err = new CustomError(
+      data.error.message.toString(),
+      400,
+      "BAD_REQUEST"
+    );
+    return next(err);
+  }
+  next();
+};

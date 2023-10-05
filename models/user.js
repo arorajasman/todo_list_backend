@@ -43,4 +43,11 @@ userSchema.methods.comparePasswords = async function (password, passwordHash) {
   return await bcrypt.compare(password, passwordHash);
 };
 
+// virtual populate todos
+userSchema.virtual("todos", {
+  ref: "Todo",
+  foreignField: "user",
+  localField: "_id",
+});
+
 module.exports = User = mongoose.model("User", userSchema);

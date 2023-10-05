@@ -14,4 +14,8 @@ module.exports = {
   refreshTokenSchema: joi.object().keys({
     refreshToken: joi.string().label("refreshToken").required(),
   }),
+  createTodoSchema: joi.object().keys({
+    title: joi.string().label("title").required(),
+    description: joi.string().label("description").optional(),
+  }),
 };

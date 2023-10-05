@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 
 const authRoutes = require("./routes/auth_routes");
+const todoRoutes = require("./routes/todo_routes");
 const error = require("./middlewares/error_middleware");
 
 dotenv.config({ path: __dirname + "/.env" });
@@ -26,7 +27,9 @@ mongoose
 
 // routes
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/todos", todoRoutes);
 
+// register route not found middleware
 app.use((req, res, next) => {
   res.status(404).json({
     status: "fail",
@@ -34,6 +37,7 @@ app.use((req, res, next) => {
   });
 });
 
+// register error middleware
 app.use(error.errorMiddlware);
 
 app.listen(process.env.PORT || 3000, () => {
